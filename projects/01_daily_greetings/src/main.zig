@@ -14,6 +14,6 @@ pub fn main(init: std.process.Init) !void {
     if (args.len < 2) {
         std.debug.print("Hello, you handsome beast!\n", .{});
     } else {
-        std.debug.print("Good {s}, {s}!\n", .{ time_of_day.greeting(), args[1] });
+        std.debug.print("Good.. {s}, {s}!\n", .{ time_of_day.greeting(), args[1] });
     }
 }
