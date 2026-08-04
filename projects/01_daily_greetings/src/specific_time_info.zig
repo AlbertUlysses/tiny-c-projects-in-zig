@@ -1,5 +1,11 @@
 const std = @import("std");
 
+pub const DayOfYear = struct{
+    day: u9,
+    // string below
+    month: const
+
+}
 pub fn specific_time() void {
     // []const u8 {
     const now = std.Io.Clock.now(std.Io.Clock.real, std.Options.debug_io);
@@ -18,10 +24,11 @@ pub fn specific_time() void {
     // }
     // const minutes = day_seconds.getMinutesIntoMinute();
     // const seconds = day_seconds.getSecondsIntoMinute();
-    // const it_is = "It is {hour}:{minutes}:{seconds}";
+    // const it_i s = "It is {hour}:{minutes}:{seconds}";
     // return temp;
     const year_day = epoch_day.calculateYearDay();
     const month_day = year_day.calculateMonthDay();
+    return 
     std.debug.print("year: {any}, month: {any}\n day: {any}\n", .{ year_day.year, month_day.month, month_day.day_index });
 }
 
