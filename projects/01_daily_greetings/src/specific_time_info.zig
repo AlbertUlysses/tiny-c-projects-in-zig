@@ -1,37 +1,28 @@
 const std = @import("std");
 
-pub const DayOfYear = struct{
+const TodayUTC = struct {
     day: u9,
-    // string below
-    month: const
+    month: []const u8,
+    year: u16,
+};
 
-}
-pub fn specific_time() void {
-    // []const u8 {
+pub fn specific_time() TodayUTC {
     const now = std.Io.Clock.now(std.Io.Clock.real, std.Options.debug_io);
     const seconds: std.time.epoch.EpochSeconds = .{
         .secs = @intCast(now.toSeconds()),
     };
-    // the 7 below hardcodes the PT timezone.
-    // the addition of 5 is due to the fact that we need to get the current time
-    // const day_seconds = seconds.getDaySeconds();
     const epoch_day = seconds.getEpochDay();
-    // var hour = day_seconds.getHoursIntoDay();
-    // if (hour < 7) {
-    //     hour += 24;
-    // } else {
-    //     hour -= 7;
-    // }
-    // const minutes = day_seconds.getMinutesIntoMinute();
-    // const seconds = day_seconds.getSecondsIntoMinute();
-    // const it_i s = "It is {hour}:{minutes}:{seconds}";
-    // return temp;
     const year_day = epoch_day.calculateYearDay();
     const month_day = year_day.calculateMonthDay();
-    return 
-    std.debug.print("year: {any}, month: {any}\n day: {any}\n", .{ year_day.year, month_day.month, month_day.day_index });
+    const today_utc = TodayUTC{
+        .day = month_day.day_index,
+        .month = @tagName(month_day.month),
+        .year = year_day.year,
+    };
+    return today_utc;
 }
 
 pub fn main() void {
-    specific_time();
+    const today_utc = specific_time();
+    std.debug.print("year: {d}, month: {s}\n day: {d}\n", .{ today_utc.year, today_utc.month, today_utc.day });
 }
