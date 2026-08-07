@@ -13,13 +13,12 @@ pub fn getTimeNow() TimeNow {
     };
     // the 7 below hardcodes the PT timezone.
     // the addition of 5 is due to the fact that we need to get the current time
-    var day_seconds = seconds.getDaySeconds().getHoursIntoDay();
+    var day_seconds = seconds.getDaySeconds();
     var hour = day_seconds.getHoursIntoDay();
     if (hour < 7) {
         hour += 24;
-    } else {
-        hour -= 7;
     }
+    hour -= 7;
 
     const time_of_day = switch (hour) {
         0...11 => "morning",
