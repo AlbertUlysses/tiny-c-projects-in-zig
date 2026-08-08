@@ -3,8 +3,13 @@ const Io = std.Io;
 
 const time_now = @import("time_now.zig");
 const specific_time = @import("specific_time_info.zig");
+const moon_phase = @import("moon_phase.zig.");
 
-const Greeting = enum { general, specific_time };
+const Greeting = enum {
+    general,
+    specific_time,
+    moon_phase,
+};
 
 pub fn main(init: std.process.Init) !void {
     const arena: std.mem.Allocator = init.arena.allocator();
@@ -30,7 +35,10 @@ pub fn main(init: std.process.Init) !void {
                 const today_utc = specific_time.specific_time();
                 std.debug.print("Greetings, {s}!\nToday is {s} {d}, {d}\nIt is {d}:{d}:{d}", .{ args[2], today_utc.month, today_utc.year, today_utc.day, current_time.hour, current_time.minutes, current_time.seconds });
             },
-            //else => std.debug.print("Not a valid arg.", .{}),
+            .moon_phase => {
+                const today_utc = specific_time.specific_time();
+                std.debug.print("Greetings, {s}\nThe moon is {s}", args[2], moon_phase.moon_phase(today_utc.year, today_utc.month, today_utc.day));
+            },
         }
     }
 }

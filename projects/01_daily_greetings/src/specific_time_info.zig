@@ -3,6 +3,7 @@ const std = @import("std");
 const TodayUTC = struct {
     day: u9,
     month: []const u8,
+    numeric_month: u4,
     year: u16,
 };
 
@@ -17,6 +18,7 @@ pub fn specific_time() TodayUTC {
     const today_utc = TodayUTC{
         .day = month_day.day_index,
         .month = @tagName(month_day.month),
+        .numeric_month = month_day.month.numeric(),
         .year = year_day.year,
     };
     return today_utc;
