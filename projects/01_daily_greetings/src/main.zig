@@ -3,7 +3,7 @@ const Io = std.Io;
 
 const time_now = @import("time_now.zig");
 const specific_time = @import("specific_time_info.zig");
-const moon_phase = @import("moon_phase.zig.");
+const moon_phase = @import("moon_phases.zig");
 
 const Greeting = enum {
     general,
@@ -25,7 +25,6 @@ pub fn main(init: std.process.Init) !void {
     } else {
         const greeting = std.meta.stringToEnum(Greeting, args[1]).?;
         switch (greeting) {
-            // fix the issue with string switches
             .general => {
                 const current_time = time_now.getTimeNow();
                 std.debug.print("Good.. {s}, {s}!\n", .{ current_time.time_of_day, args[2] });
@@ -37,7 +36,7 @@ pub fn main(init: std.process.Init) !void {
             },
             .moon_phase => {
                 const today_utc = specific_time.specific_time();
-                std.debug.print("Greetings, {s}\nThe moon is {s}", args[2], moon_phase.moon_phase(today_utc.year, today_utc.month, today_utc.day));
+                std.debug.print("Greetings, {s}\nThe moon is {s}", .{ args[2], moon_phase.moon_phase(today_utc.year, today_utc.numeric_month, today_utc.day) });
             },
         }
     }
