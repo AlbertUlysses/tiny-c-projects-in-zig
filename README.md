@@ -41,6 +41,7 @@ To Run:
 To build, run this command in the chapter directory:
     - `cd projects/02_NATO_output/` 
     - `zig build`
+
 #### Optimizations:
 - Reducing Work
     - Memory References
