@@ -1,5 +1,6 @@
 const std = @import("std");
 
+// using timenow struct to move the collection outside and us in main
 const TimeNow = struct {
     time_of_day: []const u8,
     hour: u5,
@@ -12,7 +13,8 @@ pub fn getTimeNow() TimeNow {
         .secs = @intCast(now.toSeconds()),
     };
     // the 7 below hardcodes the PT timezone.
-    // the addition of 5 is due to the fact that we need to get the current time
+    // adding 24 hr will ensure that when we remove the 7 for pt it won't
+    // go into a negative "timezone"
     var day_seconds = seconds.getDaySeconds();
     var hour = day_seconds.getHoursIntoDay();
     if (hour < 7) {

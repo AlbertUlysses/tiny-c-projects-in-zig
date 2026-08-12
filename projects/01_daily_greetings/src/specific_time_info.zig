@@ -1,5 +1,6 @@
 const std = @import("std");
 
+// creating a struct to move the information outside and use on main file
 const TodayUTC = struct {
     day: u9,
     month: []const u8,
@@ -8,6 +9,7 @@ const TodayUTC = struct {
 };
 
 pub fn specific_time() TodayUTC {
+    // get current time tied to io clock and using debug_io but can probably optimize the io
     const now = std.Io.Clock.now(std.Io.Clock.real, std.Options.debug_io);
     const seconds: std.time.epoch.EpochSeconds = .{
         .secs = @intCast(now.toSeconds()),
@@ -22,9 +24,4 @@ pub fn specific_time() TodayUTC {
         .year = year_day.year,
     };
     return today_utc;
-}
-
-pub fn main() void {
-    const today_utc = specific_time();
-    std.debug.print("year: {d}, month: {s}\n day: {d}\n", .{ today_utc.year, today_utc.month, today_utc.day });
 }
