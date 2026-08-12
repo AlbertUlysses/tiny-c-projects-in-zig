@@ -1,16 +1,23 @@
 # tiny-c-projects-in-zig
-Porting the programs in Tiny C Projects into Zig and looking for optimizations for it.
+Phase 1 (In progress):
+Porting the programs in Tiny C Projects into Zig.
+
+Phase 2 (TODO):
+Use the codebase to work on optimization techniques.
 
 ## Chpater Notes:
 
 ### Chapter 1:
-To run:
-1. Build in the chapter directory:
+
+To build, run this command in the chapter directory:
     - `cd projects/01_daily_greetings/` 
     - `zig build`
-2. Run the code with a flag:
+
+To Run:
+- "General time of day" (2.3.2)
     - `./zig-out/bin/daily_greetings general Albert` // chapter 2.3.2
         - Output: `Good Evening Albert`
+- "Adding specific time info"(2.3.3) 
     - `./zig-out/bin/daily_greetings specific_time Albert` // chapter 2.3.3
         - Ouput:
         ```
@@ -18,11 +25,14 @@ To run:
         Today is aug 2026, 6
         It is 22:20:54
         ```
-
+- "The current moon phase" (2.4)
+    - `./zig-out/bin/daily_greetings moon_phase Albert` // chapter 2.4
+        - Ouput:
+        ```
+        Greetings, Albert!
+        The moon is waxing crescent
+        ```
 *Implmented*:
-- "General time of day" (2.3.2)
-- "Adding specific time info"(2.3.3) 
-- "The current moon phase" (2.4 - TODO)
 - "A pithy saying" (2.5 - TODO)
 
 #### Optimizations:

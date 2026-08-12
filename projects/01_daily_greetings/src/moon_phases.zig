@@ -14,6 +14,6 @@ pub fn moon_phase(year: u16, month: u4, day: u9) []const u8 {
     if ((e == 25.0) | (e == 24.0)) {
         e += 1;
     }
-    const mp = (@mod((((e + d) * 6.0 + 5.0) , 177.0)) / 22.0 & 7.0);
-    return phase[mp];
+    const mp = @mod(@mod(((e + d) * 6 + 5), 177), @mod(22, 7));
+    return phase[@intFromFloat(mp)];
 }
