@@ -5,7 +5,7 @@ Porting the programs in Tiny C Projects into Zig.
 Phase 2 (TODO):
 Use the codebase to work on optimization techniques.
 
-## Chpater Notes:
+## Chapter Notes:
 
 ### Chapter 1:
 
@@ -32,9 +32,15 @@ To Run:
         Greetings, Albert!
         The moon is waxing crescent
         ```
-*Implmented*:
-- "A pithy saying" (2.5 - TODO)
+*TODO*:
+- "A pithy saying" (2.5)
+    - skipping because I don't want to think of fortunes but will return before finishing chapter 2
 
+### Chapter 1:
+
+To build, run this command in the chapter directory:
+    - `cd projects/02_NATO_output/` 
+    - `zig build`
 #### Optimizations:
 - Reducing Work
     - Memory References
