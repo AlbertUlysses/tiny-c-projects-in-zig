@@ -7,10 +7,10 @@ Use the codebase to work on optimization techniques.
 
 ## Chapter Notes:
 
-### Chapter 1:
+### Chapter 2:
 
 To build, run this command in the chapter directory:
-    - `cd projects/01_daily_greetings/` 
+    - `cd projects/02_daily_greetings/` 
     - `zig build`
 
 To Run:
@@ -36,10 +36,10 @@ To Run:
 - "A pithy saying" (2.5)
     - skipping because I don't want to think of fortunes but will return before finishing chapter 2
 
-### Chapter 1:
+### Chapter 3:
 
 To build, run this command in the chapter directory:
-    - `cd projects/02_NATO_output/` 
+    - `cd projects/03_NATO_output/` 
     - `zig build`
 
 #### Optimizations:
@@ -48,3 +48,6 @@ To build, run this command in the chapter directory:
     - Register Utilizations
 - Machine Specific 
     - CPU Utilization
+
+## zig version
+currently building in `0.17.0-dev.1737+de207594e`
